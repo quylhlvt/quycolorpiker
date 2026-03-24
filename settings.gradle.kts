@@ -21,5 +21,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ProjectInGit"
-include(":app")
+include(":QuyColorPiker")
  

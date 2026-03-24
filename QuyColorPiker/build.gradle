@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
 
@@ -11,8 +10,6 @@ android {
     defaultConfig {
         minSdk 18
         targetSdk 35
-
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -23,12 +20,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+
+    kotlin {
+        jvmToolchain(8)
+    }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
     }
 }
 
@@ -40,7 +45,6 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-
                 groupId = 'com.github.quylhlvt'
                 artifactId = 'quycolorpiker'
                 version = 'v1.0.0'

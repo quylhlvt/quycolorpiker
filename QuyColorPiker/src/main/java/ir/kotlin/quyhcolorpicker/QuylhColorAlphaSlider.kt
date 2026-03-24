@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
 
-class KavehColorAlphaSlider(context: Context, attributeSet: AttributeSet?) :
-    KavehColorSlider(context, attributeSet) {
+class QuylhColorAlphaSlider(context: Context, attributeSet: AttributeSet?) :
+    QuylhColorSlider(context, attributeSet) {
 
     constructor(context: Context) : this(context, null)
 

@@ -12,7 +12,7 @@ import android.view.View
 import kotlin.math.floor
 import kotlin.math.max
 
-abstract class KavehColorSlider(context: Context, attributeSet: AttributeSet?) :
+abstract class QuylhColorSlider(context: Context, attributeSet: AttributeSet?) :
     View(context, attributeSet) {
 
     constructor(context: Context) : this(context, null)

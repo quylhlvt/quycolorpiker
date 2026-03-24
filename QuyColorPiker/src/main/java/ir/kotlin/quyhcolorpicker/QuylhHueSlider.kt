@@ -10,8 +10,8 @@ import android.graphics.Shader
 import android.util.AttributeSet
 import kotlin.math.floor
 
-class KavehHueSlider(context: Context, attributeSet: AttributeSet?) :
-    KavehColorSlider(context, attributeSet) {
+class QuylhHueSlider(context: Context, attributeSet: AttributeSet?) :
+    QuylhColorSlider(context, attributeSet) {
 
     constructor(context: Context) : this(context, null)
 

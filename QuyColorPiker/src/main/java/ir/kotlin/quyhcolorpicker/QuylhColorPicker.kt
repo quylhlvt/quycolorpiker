@@ -12,8 +12,8 @@ import android.util.AttributeSet
 import kotlin.math.max
 import kotlin.math.min
 
-class KavehColorPicker(context: Context, attributeSet: AttributeSet?) :
-    KavehColorSlider(context, attributeSet) {
+class QuylhColorPicker(context: Context, attributeSet: AttributeSet?) :
+    QuylhColorSlider(context, attributeSet) {
 
     constructor(context: Context) : this(context, null)
 
@@ -46,7 +46,7 @@ class KavehColorPicker(context: Context, attributeSet: AttributeSet?) :
             invalidate()
         }
 
-    var alphaSliderView: KavehColorAlphaSlider? = null
+    var alphaSliderView: QuylhColorAlphaSlider? = null
         set(value) {
             field = value
 
@@ -60,7 +60,7 @@ class KavehColorPicker(context: Context, attributeSet: AttributeSet?) :
             }
         }
 
-    var hueSliderView: KavehHueSlider? = null
+    var hueSliderView: QuylhHueSlider? = null
         set(value) {
             if (value != null) {
                 field = value
@@ -78,7 +78,7 @@ class KavehColorPicker(context: Context, attributeSet: AttributeSet?) :
 
     /**
      * This value represents selected color in color picker.
-     * If [KavehColorAlphaSlider] is connected to this view via [alphaSliderView] then alpha value is
+     * If [QuylhColorAlphaSlider] is connected to this view via [alphaSliderView] then alpha value is
      * taken from [alphaSliderView] and applied on the final color.
      */
     var color = Color.RED

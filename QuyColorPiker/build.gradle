@@ -42,8 +42,8 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.quylhlvt'
-                artifactId = 'QuyColorPicker'
-                version = '1.0.0'
+                artifactId = 'quycolorpiker'
+                version = 'v1.0.0'
             }
         }
     }

@@ -19,7 +19,10 @@ class QuylhHueSlider(context: Context, attributeSet: AttributeSet?) :
 
     private lateinit var hueBitmapShader: BitmapShader
 
-
+    init {
+        circleRadiusFactor = 0.6f
+        strokeSize = dp(4)  // tăng lên tùy ý
+    }
     /**
      * Bitmap that is 360 pixels and each pixels represents a degree in hue.
      */

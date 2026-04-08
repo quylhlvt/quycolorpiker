@@ -206,9 +206,11 @@ abstract class QuylhColorSlider(context: Context, attributeSet: AttributeSet?) :
         heightHalf = heightF * 0.5f
         linePaint.strokeWidth = heightHalf
 
-        widthF = targetWidth - paddingEnd - heightHalf
+        val circleRadius = heightHalf * circleRadiusFactor
+        val overlapSize = strokeSize  // tràn ra đúng bằng độ dày viền
 
-        drawingStart = heightHalf + paddingStart
+        widthF = targetWidth - paddingEnd - circleRadius + overlapSize
+        drawingStart = circleRadius + paddingStart - overlapSize       // <-- thay heightHalf
         drawingTop = heightHalf + paddingTop
 
         if (isWrapContent) {
@@ -245,8 +247,15 @@ abstract class QuylhColorSlider(context: Context, attributeSet: AttributeSet?) :
         }
 
     }
-
+    // Thêm property này
+    var circleRadiusFactor = 0.6f  // Điều chỉnh giá trị này (0f-1f) để thay đổi kích thước
+        set(value) {
+            field = value.coerceIn(0f, 1f)
+            invalidate()
+        }
     override fun onDraw(canvas: Canvas) {
+        val circleRadius = heightHalf * circleRadiusFactor
+
         canvas.drawLine(
             drawingStart,
             drawingTop,
@@ -255,22 +264,13 @@ abstract class QuylhColorSlider(context: Context, attributeSet: AttributeSet?) :
             linePaint
         )
 
-        canvas.drawCircle(
-            circleX,
-            drawingTop,
-            heightHalf,
-            circlePaint.apply {
-                color = strokeColor
-            })
+        canvas.drawCircle(circleX, drawingTop, circleRadius, circlePaint.apply {
+            color = strokeColor
+        })
 
-        canvas.drawCircle(
-            circleX,
-            drawingTop,
-            heightHalf - strokeSize,
-            circlePaint.apply {
-                color = circleColor
-            })
-
+        canvas.drawCircle(circleX, drawingTop, circleRadius - strokeSize, circlePaint.apply {
+            color = circleColor
+        })
     }
 
     override fun onSaveInstanceState(): Parcelable? {

@@ -111,7 +111,7 @@ class QuylhColorPicker(context: Context, attributeSet: AttributeSet?) :
 
     init {
         linePaint.style = Paint.Style.FILL
-        strokeSize = dp(4)
+        strokeSize = dp(3)
     }
 
     override fun onCirclePositionChanged(circlePositionX: Float, circlePositionY: Float) {

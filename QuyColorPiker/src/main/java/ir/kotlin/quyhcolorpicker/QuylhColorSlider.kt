@@ -264,12 +264,22 @@ abstract class QuylhColorSlider(context: Context, attributeSet: AttributeSet?) :
             linePaint
         )
 
+        // Bật hardware acceleration để shadow hoạt động
+        setLayerType(LAYER_TYPE_SOFTWARE, null)
+
         canvas.drawCircle(circleX, drawingTop, circleRadius, circlePaint.apply {
             color = strokeColor
+            setShadowLayer(
+                circleRadius * 0.3f,  // blur radius
+                0f,                    // offset X
+                circleRadius * 0.2f,  // offset Y (đổ xuống)
+                Color.argb(80, 0, 0, 0) // màu bóng, 80 = độ trong suốt
+            )
         })
 
         canvas.drawCircle(circleX, drawingTop, circleRadius - strokeSize, circlePaint.apply {
             color = circleColor
+            clearShadowLayer() // xóa shadow ở vòng trong
         })
     }
 

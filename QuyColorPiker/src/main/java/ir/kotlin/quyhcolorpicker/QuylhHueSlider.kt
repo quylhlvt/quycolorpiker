@@ -20,7 +20,7 @@ class QuylhHueSlider(context: Context, attributeSet: AttributeSet?) :
     private lateinit var hueBitmapShader: BitmapShader
 
     init {
-        circleRadiusFactor = 0.8f
+        circleRadiusFactor = 0.7f
         strokeSize = dp(3)  // tăng lên tùy ý
     }
     /**
@@ -40,7 +40,7 @@ class QuylhHueSlider(context: Context, attributeSet: AttributeSet?) :
     private var onHueChangeEnd: ((hue: Float, argbColor: Int) -> Unit)? = null
     private var onHueChangeEndListener: OnHueChangeEndListener? = null
 
-    var hue: Float = 30f
+    var hue: Float = 40f
         set(value) {
             field = value
             isSliderChangingState = true
